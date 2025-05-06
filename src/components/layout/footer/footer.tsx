@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
 
-          <p className="w-full mt-8 text-sm text-center dark:text-gray-100 md:mt-0 md:w-auto md:order-2">© Copyright 2025</p>
+          <p className="w-full mt-8 text-sm text-center dark:text-gray-100 md:mt-0 md:w-auto md:order-2">© Copyright 2025, All Rights Reserved by SAMTEK</p>
         </div>
       </div>
     </footer>
