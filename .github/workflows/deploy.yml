@@ -21,7 +21,9 @@ jobs:
 
       - name: Deploy to GCP
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -t  ppidev@34.34.218.54 << 'EOF'
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -t ppidev@34.34.218.54 << 'EOF'
+            source ~/.bashrc
+            nvm use 22.15.0
             cd ~/apps/samtek.id  # ubah sesuai subdomain kalau perlu
             git pull origin main || git clone git@github.com:PPI-DEV-ORG/samtek-landing-page.git .
             npm install --legacy-peer-deps
