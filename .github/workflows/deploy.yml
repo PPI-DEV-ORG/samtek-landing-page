@@ -27,8 +27,22 @@ jobs:
             source ~/.bashrc
             nvm use 22.15.0
             cd ~/apps/samtek.id  # ubah sesuai subdomain kalau perlu
-            git pull origin main || git clone git@github.com:PPI-DEV-ORG/samtek-landing-page.git .
+
+            # Cek apakah direktori adalah repo git atau tidak
+            if [ -d .git ]; then
+              # Jika sudah repo git, lakukan git pull
+              git pull origin main
+            else
+              # Jika belum repo git, clone repository
+              git clone git@github.com:PPI-DEV-ORG/samtek-landing-page.git .
+            fi
+
             npm install --legacy-peer-deps
-            npm run build
-            pm2 restart samtek || pm2 start 'npm start' --name samtek --port 3000
+
+            # Cek apakah proses sudah ada, restart jika ada, atau start baru
+            if pm2 list | grep -q 'samtek'; then
+              pm2 restart samtek
+            else
+              pm2 start npm --name samtek -- run start
+            fi
           EOF
