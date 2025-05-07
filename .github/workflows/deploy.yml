@@ -35,7 +35,7 @@ jobs:
               git pull origin main
             else
               # Jika belum repo git, clone repository
-              git clone ssh -T git@github.com-landing:PPI-DEV-ORG/samtek-landing-page.git .
+              git clone git@github.com-landing:PPI-DEV-ORG/samtek-landing-page.git .
             fi
 
             npm install --legacy-peer-deps
