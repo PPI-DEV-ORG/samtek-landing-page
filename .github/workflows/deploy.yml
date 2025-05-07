@@ -40,6 +40,8 @@ jobs:
 
             npm install --legacy-peer-deps
 
+            npm run build
+
             PORT=3000
             # Cek apakah proses sudah ada, restart jika ada, atau start baru
             if pm2 list | grep -q 'samtek'; then
