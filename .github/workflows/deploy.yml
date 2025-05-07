@@ -19,8 +19,6 @@ jobs:
           chmod 600 ~/.ssh/id_landing_page
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           ssh-keyscan -H 34.34.218.54 >> ~/.ssh/known_hosts
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_landing_page
 
       - name: Deploy to GCP
         run: |
@@ -37,7 +35,7 @@ jobs:
               git pull origin main
             else
               # Jika belum repo git, clone repository
-              git clone git@github.com:PPI-DEV-ORG/samtek-landing-page.git .
+              git clone ssh -T git@github.com-landing:PPI-DEV-ORG/samtek-landing-page.git .
             fi
 
             npm install --legacy-peer-deps
