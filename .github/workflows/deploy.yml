@@ -21,7 +21,7 @@ jobs:
 
       - name: Deploy to GCP
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -t ppidev@34.34.218.54 << 'EOF'
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t ppidev@34.34.218.54 << 'EOF'
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             source ~/.bashrc
