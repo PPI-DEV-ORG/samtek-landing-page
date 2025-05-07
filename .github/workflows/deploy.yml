@@ -17,11 +17,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.GCP_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H 34.34.218.54 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 34.50.102.168 >> ~/.ssh/known_hosts
 
       - name: Deploy to GCP
         run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t ppidev@34.34.218.54 << 'EOF'
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t ppidev@34.50.102.168 << 'EOF'
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             source ~/.bashrc
