@@ -39,10 +39,11 @@ jobs:
 
             npm install --legacy-peer-deps
 
+            PORT=3000
             # Cek apakah proses sudah ada, restart jika ada, atau start baru
             if pm2 list | grep -q 'samtek'; then
               pm2 restart samtek
             else
-              pm2 start npm --name samtek -- run start
+              pm2 list | grep -q "samtek" && pm2 restart samtek --port $PORT || pm2 start npm --name "samtek" -- run start -- --port $PORT
             fi
           EOF
