@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to GCP
         run: |
-          ssh -i ~/.ssh/id_landing_page -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t  ppidev@334.128.116.49 << 'EOF'
+          ssh -i ~/.ssh/id_landing_page -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t  ppidev@34.128.116.49 << 'EOF'
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             source ~/.bashrc
