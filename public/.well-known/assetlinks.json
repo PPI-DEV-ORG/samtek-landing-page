@@ -4,14 +4,6 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.ppidev.pantauai",
-      "sha256_cert_fingerprints": ["14:C6:10:2E:46:CB:C8:E3:C8:7B:96:3C:34:64:2A:F3:50:E6:B7:1A:57:12:3B:0D:A0:51:76:00:64:13:DB:35"]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.ppidev.pantauai",
       "sha256_cert_fingerprints": ["A4:31:AB:51:8A:52:E0:36:C6:7E:97:8B:6F:DC:E3:A0:04:12:85:A1:3F:DA:F6:8F:25:96:CA:83:3C:95:6E:60"]
     }
   },
@@ -20,18 +12,11 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.ppidev.pantauai",
-      "sha256_cert_fingerprints": ["7F:E3:71:FD:C3:F3:B1:28:94:7B:78:02:42:FC:99:DC:B5:C9:8E:5C:1B:8E:A8:AA:7A:37:BD:F7:55:BE:C6:29"]
+      "sha256_cert_fingerprints": ["14:C6:10:2E:46:CB:C8:E3:C8:7B:96:3C:34:64:2A:F3:50:E6:B7:1A:57:12:3B:0D:A0:51:76:00:64:13:DB:35"]
     }
   },
   {
-    "relation": ["delegate_permission/common.get_login_creds"],
-    "target": {
-      "namespace": "web",
-      "site": "https://samtek.id"
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.get_login_creds"],
+    "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
       "package_name": "com.ppidev.pantauai",
