@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ppidev.pantauai",
+      "sha256_cert_fingerprints": ["14:C6:10:2E:46:CB:C8:E3:C8:7B:96:3C:34:64:2A:F3:50:E6:B7:1A:57:12:3B:0D:A0:51:76:00:64:13:DB:35"]
+    }
+  }
+]

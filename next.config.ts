@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['cdn.rareblocks.xyz'],
   },
-  output: 'standalone',
 };
 
 export default nextConfig;

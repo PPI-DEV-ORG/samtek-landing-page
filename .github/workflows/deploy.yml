@@ -12,43 +12,56 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.11.0'
+
+      - name: Install dependencies
+        run: npm i --legacy-peer-deps
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Compress build artifacts
+        run: |
+          tar -czf build.tar.gz .next public package.json
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SECRET_SAMTEK_LANDING }}" > ~/.ssh/id_landing_page
-          chmod 600 ~/.ssh/id_landing_page
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-          ssh-keyscan -H 34.128.116.49 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.VM_IP }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to GCP
-        run: |
-          ssh -i ~/.ssh/id_landing_page -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t  ppidev@34.128.116.49 << 'EOF'
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            source ~/.bashrc
-            nvm use 22.15.0
+      # - name: Create directory on server
+      #   run: |
+      #     ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ${{ secrets.VM_USERNAME }}@${{ secrets.VM_IP }} \
+      #     "mkdir -p ~/Projects/samtek-landing-page"
 
-            mkdir -p ~/apps/samtek.id
-            cd ~/apps/samtek.id  # ubah sesuai subdomain kalau perlu
+      # - name: Deploy to GCP
+      #   run: |
+      #     ssh -i ~/.ssh/id_landing_page -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=5 -t ${{ secrets.VM_USERNAME }}@${{ secrets.VM_IP }} << 'EOF'
+      #       export NVM_DIR=~/.nvm
+      #       source ~/.nvm/nvm.sh
+      #       source ~/.bashrc
+      #       nvm use 22.15.0
 
-            # Cek apakah direktori adalah repo git atau tidak
-            if [ -d .git ]; then
-              # Jika sudah repo git, lakukan git pull
-              git pull origin main
-            else
-              # Jika belum repo git, clone repository
-              git clone git@github.com-landing:PPI-DEV-ORG/samtek-landing-page.git .
-            fi
+      #       cd ~/Projects/samtek-landing-page
 
-            npm install --legacy-peer-deps
-            npm run build
+      #       rm -rf .next public package.json next.config.js
+      #       tar -xzf build.tar.gz
+      #       rm build.tar.gz
 
-            PORT=3000
+      #       npm install --staging --legacy-peer-deps
 
-            # Cek apakah proses sudah ada, restart jika ada, atau start baru
-            if pm2 list | grep -q 'samtek'; then
-              pm2 restart samtek
-            else
-              pm2 list | grep -q "samtek" && pm2 restart samtek --port $PORT || pm2 start npm --name "samtek" -- run start -- --port $PORT
-            fi
-          EOF
+      #       PORT=3001
+
+      #       # Cek apakah proses sudah ada, restart jika ada, atau start baru
+      #       if pm2 list | grep -q 'samtek'; then
+      #         pm2 restart samtek
+      #       else
+      #         pm2 start npm --name "samtek" -- run start -- --port $PORT
+      #       fi
+      #     EOF
