@@ -1,21 +1,21 @@
-import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Samtek',
-  description: 'SAMTEK - AI SOLUTIONS FOR THE FUTURE',
+  title: "Samtek",
+  description: "SAMTEK - AI SOLUTIONS FOR THE FUTURE",
 };
 
 export default function RootLayout({
@@ -29,8 +29,15 @@ export default function RootLayout({
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
       </head>
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
