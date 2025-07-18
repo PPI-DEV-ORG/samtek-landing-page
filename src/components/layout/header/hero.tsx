@@ -1,4 +1,5 @@
 "use client";
+import contentData from "@/data/json/content.json";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -17,7 +18,9 @@ export const HeroSection: React.FC = () => {
             </p>
 
             <a
-              href="#"
+              href={`https://wa.me/${contentData.waNumber62}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-black dark:text-gray-900  transition-all duration-200 bg-yellow-300 rounded-full lg:mt-16 hover:bg-yellow-400 focus:bg-yellow-400"
             >
               Free Consultation Now!
@@ -36,13 +39,6 @@ export const HeroSection: React.FC = () => {
                 />
               </svg>
             </a>
-
-            {/* <p className="mt-5 light:text-gray-600">
-              Already joined us?{' '}
-              <a href="#" className="text-black transition-all duration-200 hover:underline">
-                Log in
-              </a>
-            </p> */}
           </div>
 
           <div>
@@ -50,7 +46,6 @@ export const HeroSection: React.FC = () => {
               <source src="/videos/hero.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            {/* <Image className="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/1/hero-img.png" alt="Hero" width={700} height={500} /> */}
           </div>
         </div>
       </div>

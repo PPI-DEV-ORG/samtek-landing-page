@@ -1,14 +1,20 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import contentData from "@/data/json/content.json";
 
 export const ConsultationSection: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Ganti ini dengan logika submit atau request API
-    console.log('Submitted email:', email);
+
+    const subject = encodeURIComponent("Request Demo");
+    const body = encodeURIComponent(
+      `Hello,\n\nI would like to request a demo.\n\nHere is my email: ${email}\n\nThank you.`
+    );
+
+    window.location.href = `mailto:${contentData.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -17,7 +23,9 @@ export const ConsultationSection: React.FC = () => {
         <div className="text-center lg:flex lg:items-center lg:justify-between lg:text-left">
           <div>
             <h2 className="text-4xl font-bold  lg:max-w-md">Request Demo</h2>
-            <p className="mt-6 text-base text-gray-600 dark:text-gray-200 lg:max-w-md lg:mt-0">Book Your Complimentary Consult Today</p>
+            <p className="mt-6 text-base text-gray-600 dark:text-gray-200 lg:max-w-md lg:mt-0">
+              Book Your Complimentary Consult Today
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="px-10 mt-8 lg:mt-0 lg:px-0">

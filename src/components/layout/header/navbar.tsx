@@ -202,7 +202,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex md:items-center md:space-x-10">
             <NavigationListMenu />
-            <ToggleTheme />
+            {/* <ToggleTheme /> */}
           </div>
         </nav>
 

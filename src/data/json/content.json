@@ -1,0 +1,39 @@
+{
+  "email": "contact@samtek.id",
+  "waNumber": "087788856277",
+  "waNumber62": "6287788856277",
+  "address": "Jl. Bintara Jaya VIII, RT.008/RW.009, Bintara Jaya, Kec. Bekasi Barat, Jawa Barat 17136",
+  "Links": {
+    "documents": {
+      "compro": {
+        "name": "Company Profile",
+        "type": "pdf",
+        "url": "https://drive.google.com/file/d/1qMixHeqEkwTNRZlFnY1uIAWb3QDZIpep/view?usp=drive_link"
+      }
+    },
+    "externalAssets": {
+      "vmsGuideline": {
+        "name": "VMS Guideline",
+        "type": "google-doc",
+        "url": "https://docs.google.com/document/d/1e8ikKKGq9kgrISvtPmnZdzyiHYfyA7tM3vMOQgdNmqw/edit?usp=sharing"
+      },
+      "cctvRequirements": {
+        "name": "CCTV Installation Requirements",
+        "type": "google-doc",
+        "url": "https://docs.google.com/document/d/1uRmCujECU8K2sRau9qtiGqh6MCgB5vKmEO0mQF4sy7Y/edit?usp=sharing"
+      }
+    },
+    "socialLinks": {
+      "instagram": {
+        "name": "Instagram",
+        "type": "social-media",
+        "url": "https://www.instagram.com/samteknologi_id/?hl=en"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "type": "social-media",
+        "url": "https://www.linkedin.com/company/pt-safanah-alvan-maksima"
+      }
+    }
+  }
+}
