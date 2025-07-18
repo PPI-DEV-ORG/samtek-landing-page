@@ -1,3 +1,5 @@
+import VideoTabs from "./_components/video-tabs";
+
 export const metadata = {
   title: "AI Analytics - Product",
   description:
@@ -32,12 +34,8 @@ export default function AIAnalyticsPage() {
             </div>
           </div>
 
-          <div className="w-full max-w-sm mb-10 lg:mb-0">
-            <img
-              src="/gif/gif-robot.gif"
-              alt="AI animation"
-              className="w-full h-auto drop-shadow-lg rounded-xl"
-            />
+          <div className="w-full mb-10 lg:mb-0">
+            <VideoTabs />
           </div>
         </div>
       </div>
