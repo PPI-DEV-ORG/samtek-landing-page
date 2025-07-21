@@ -6,8 +6,6 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 
-const logos = ['logo-1.png', 'logo-2.png', 'logo-3.png', 'logo-4.png', 'logo-5.png', 'logo-6.png', 'logo-7.png', 'logo-8.png'];
-
 export const OurClientsSection: React.FC = () => {
   const plugin = useRef(
     Autoplay({
@@ -46,10 +44,10 @@ export const OurClientsSection: React.FC = () => {
               className="w-full"
             >
               <CarouselContent className="-ml-4">
-                {logos.map((logo, index) => (
+                {Array.from({ length: 10 }, (_, index) => (
                   <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                     <div className="flex items-center justify-center p-4 bg-white dark:bg-gray-800 rounded-md shadow-md h-28">
-                      <Image width={100} height={100} src={`/images/our-clients/${index + 1}.png`} alt={`Logo ${index + 1}`} className="object-contain h-16 w-auto" />
+                      <Image width={100} height={100} src={`/images/our-clients/${index + 1}.png`} alt={`Logo  ${index + 1}`} className="object-contain h-16 w-auto" />
                     </div>
                   </CarouselItem>
                 ))}
